@@ -37,7 +37,7 @@ const Nav = () => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            News
+            Propria Persona
           </Typography>
           <Button color="inherit">Login</Button>
         </Toolbar>
