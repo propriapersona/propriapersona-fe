@@ -9,6 +9,7 @@ import {
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import { makeStyles } from "@material-ui/core/styles";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,7 +40,12 @@ const Nav = () => {
           <Typography variant="h6" className={classes.title}>
             Propria Persona
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Link to="/login">
+            <Button color="inherit">Login</Button>
+          </Link>
+          <Link to="/signup">
+            <Button color="inherit">Sign Up</Button>
+          </Link>
         </Toolbar>
       </AppBar>
     </div>

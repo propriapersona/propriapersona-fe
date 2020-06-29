@@ -1,22 +1,30 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import axiosWithAuth from "../utils/axiosAuth.js";
 import { Box, Button, TextField } from "@material-ui/core";
-import axiosWithAuth from "./utils/axiosAuth.js";
 
-const Login = () => {
-  const [user, setUser] = useState({ email: "", password: "" });
+const SignUp = () => {
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    username: "",
+    password: "",
+  });
+  const history = useHistory();
 
   const handleChange = (event) => {
     setUser({ ...user, [event.target.name]: event.target.value });
   };
-  console.log(user);
+  //console.log(user);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     axiosWithAuth()
-      .post("/api/login", user)
+      .post("/auth/register", user)
       .then((res) => {
-        localStorage.setItem("token", res.data.payload);
-        // props.history.push("/dashboard");
+        localStorage.setItem("token", res.data.token);
+        console.log(res);
+        history.push("/dashboard");
       })
       .catch((err) => console.log(err));
   };
@@ -32,9 +40,21 @@ const Login = () => {
         onSubmit={handleSubmit}
       >
         <TextField
+          name="name"
+          label="Name"
+          value={user.name}
+          onChange={handleChange}
+        />
+        <TextField
           name="email"
           label="Email"
           value={user.email}
+          onChange={handleChange}
+        />
+        <TextField
+          name="username"
+          label="Username"
+          value={user.username}
           onChange={handleChange}
         />
         <TextField
@@ -43,10 +63,10 @@ const Login = () => {
           value={user.password}
           onChange={handleChange}
         />
-        <Button type="submit">Login</Button>
+        <Button type="submit">Sign Up</Button>
       </Box>
     </div>
   );
 };
 
-export default Login;
+export default SignUp;
