@@ -23,7 +23,7 @@ const useStyles = makeStyles({
   },
 });
 
-const FormCard = () => {
+const SearchFormCard = () => {
   const classes = useStyles();
 
   return (
@@ -49,4 +49,4 @@ const FormCard = () => {
   );
 };
 
-export default FormCard;
+export default SearchFormCard;
