@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="App">
       <Nav />
-      <Hero />
+      {/* <Hero /> */}
       <Switch>
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />

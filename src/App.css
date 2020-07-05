@@ -40,5 +40,7 @@
 .forms-card-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
+  margin: 0 auto;
+  width: 300px;
 }
