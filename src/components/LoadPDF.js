@@ -35,6 +35,12 @@ const LoadPDF = () => {
     const pdfBytes = await pdfDoc.save();
     setPdfInfo(pdfBytes);
     console.log(pdfBytes);
+    const base64DataUri = await pdfDoc.saveAsBase64({ dataUri: true });
+    console.log("base64", base64DataUri);
+    const image = document.createElement("img");
+    image.src = base64DataUri;
+    console.log(image);
+    document.body.appendChild(image);
   };
   return <div>{/* <div title="test">{pdfInfo}</div> */}</div>;
 };
