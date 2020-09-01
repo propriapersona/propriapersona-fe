@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { Box, Button, TextField } from "@material-ui/core";
+import {
+  Box,
+  Button,
+  TextField,
+  Container,
+  Paper,
+  Avatar,
+} from "@material-ui/core";
+import SecurityIcon from "@material-ui/icons/Security";
 import axiosWithAuth from "../utils/axiosAuth.js";
 import { useHistory } from "react-router-dom";
 
@@ -25,30 +33,35 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <Box
-        component="form"
-        display="flex"
-        flexDirection="column"
-        width={400}
-        justifyContent="center"
-        onSubmit={handleSubmit}
-      >
-        <TextField
-          name="username"
-          label="username"
-          value={user.username}
-          onChange={handleChange}
-        />
-        <TextField
-          name="password"
-          label="Password"
-          value={user.password}
-          onChange={handleChange}
-        />
-        <Button type="submit">Login</Button>
-      </Box>
-    </div>
+    <Container maxWidth="xs">
+      <Paper>
+        <Box
+          component="form"
+          display="flex"
+          flexDirection="column"
+          // width={400}
+          justifyContent="center"
+          onSubmit={handleSubmit}
+        >
+          <Avatar>
+            <SecurityIcon />
+          </Avatar>
+          <TextField
+            name="username"
+            label="Username"
+            value={user.username}
+            onChange={handleChange}
+          />
+          <TextField
+            name="password"
+            label="Password"
+            value={user.password}
+            onChange={handleChange}
+          />
+          <Button type="submit">Login</Button>
+        </Box>
+      </Paper>
+    </Container>
   );
 };
 

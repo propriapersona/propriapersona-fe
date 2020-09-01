@@ -49,6 +49,9 @@ const Nav = () => {
           <Link to="/login">
             <Button color="inherit">Login</Button>
           </Link>
+          <Link to="#">
+            <Button color="inherit">About</Button>
+          </Link>
           <Link to="/signup">
             <Button color="inherit">Sign Up</Button>
           </Link>

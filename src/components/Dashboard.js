@@ -159,6 +159,7 @@ const Dashboard = (props) => {
           <Navigator PaperProps={{ style: { width: drawerWidth } }} />
         </nav>
         <div className={classes.app}>
+          {/* <Header /> */}
           <main className={classes.main}>
             <Content />
           </main>
