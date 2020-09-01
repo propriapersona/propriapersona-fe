@@ -2,7 +2,8 @@ import React from "react";
 import LoadPDF from "./LoadPDF.js";
 import SearchFormCard from "./SearchFormCard.js";
 import ViewFormCard from "./ViewFormCard.js";
-import Navigator from "./Navigator";
+import Navigator from "./Navigator.js";
+import Content from "./Content.js";
 import {
   createMuiTheme,
   ThemeProvider,
@@ -157,6 +158,11 @@ const Dashboard = (props) => {
         <nav className={classes.drawer}>
           <Navigator PaperProps={{ style: { width: drawerWidth } }} />
         </nav>
+        <div className={classes.app}>
+          <main className={classes.main}>
+            <Content />
+          </main>
+        </div>
       </div>
     </ThemeProvider>
   );
