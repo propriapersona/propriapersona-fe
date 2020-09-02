@@ -6,17 +6,14 @@ import { Route, Switch } from "react-router-dom";
 import PrivateRoute from "./components/PrivateRoute.js";
 import Dashboard from "./components/Dashboard.js";
 import SignUp from "./components/SignUp";
-import Hero from "./components/Hero.js";
 import LoadPDF from "./components/LoadPDF";
 import HomePage from "./components/HomePage";
 
 function App() {
   return (
     <div className="App">
-      {/* <Nav /> */}
-      {/* <Hero /> */}
       <Switch>
-        <Route path="/test" component={HomePage} />
+        <Route exact path="/" component={HomePage} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
         <PrivateRoute exact path="/dashboard" component={Dashboard} />

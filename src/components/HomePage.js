@@ -14,8 +14,8 @@ const HomePage = () => {
           <h1>Value Proposition Here</h1>
         </div>
       </div>
-      <section className="center-info">
-        <div>Test</div>
+      <section>
+        <div className="center-info">Test</div>
       </section>
     </>
   );

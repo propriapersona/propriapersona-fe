@@ -11,6 +11,7 @@ import {
 } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Hidden from "@material-ui/core/Hidden";
+import Header from "./Header.js";
 
 let theme = createMuiTheme({
   palette: {
@@ -159,7 +160,7 @@ const Dashboard = (props) => {
           <Navigator PaperProps={{ style: { width: drawerWidth } }} />
         </nav>
         <div className={classes.app}>
-          {/* <Header /> */}
+          <Header />
           <main className={classes.main}>
             <Content />
           </main>
