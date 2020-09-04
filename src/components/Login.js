@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
   },
   container: {
-    backgroundColor: theme.palette.common.white,
+    backgroundColor: "rgba(255, 255, 255, 0.7)",
   },
 }));
 
