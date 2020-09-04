@@ -36,6 +36,9 @@ const useStyles = makeStyles((theme) => ({
   textfield: {
     flexDirection: "column",
   },
+  container: {
+    backgroundColor: theme.palette.common.white,
+  },
 }));
 
 const Login = () => {
@@ -60,7 +63,7 @@ const Login = () => {
   };
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="xs" className={classes.container}>
       <div className={classes.paper}>
         {/* <Box
           component="form"

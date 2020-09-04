@@ -7,6 +7,7 @@ import {
   ListItemText,
 } from "@material-ui/core";
 import HomeIcon from "@material-ui/icons/Home";
+import SettingsIcon from "@material-ui/icons/Settings";
 import FolderIcon from "@material-ui/icons/Folder";
 import { withStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
@@ -84,6 +85,14 @@ const Navigator = (props) => {
         <ListItem className={classes.categoryHeader}>
           <ListItemText classes={{ primary: classes.categoryHeaderPrimary }}>
             Case Info
+          </ListItemText>
+        </ListItem>
+        <ListItem button className={clsx(classes.item, classes.itemActiveItem)}>
+          <ListItemIcon>
+            <SettingsIcon />
+          </ListItemIcon>
+          <ListItemText classes={{ primary: classes.itemPrimary }}>
+            Settings
           </ListItemText>
         </ListItem>
       </List>
