@@ -12,6 +12,7 @@ import {
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Hidden from "@material-ui/core/Hidden";
 import Header from "./Header.js";
+import Settings from "./Settings.js";
 
 let theme = createMuiTheme({
   palette: {
@@ -163,6 +164,7 @@ const Dashboard = (props) => {
           <Header />
           <main className={classes.main}>
             <Content />
+            <Settings />
           </main>
         </div>
       </div>
