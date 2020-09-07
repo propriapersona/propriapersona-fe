@@ -74,7 +74,11 @@ const Navigator = (props) => {
             Home
           </ListItemText>
         </ListItem>
-        <ListItem button className={clsx(classes.item, classes.itemActiveItem)}>
+        <ListItem
+          button
+          className={clsx(classes.item, classes.itemActiveItem)}
+          onClick={() => other.setMenuItem("forms")}
+        >
           <ListItemIcon>
             <FolderIcon />
           </ListItemIcon>
@@ -87,7 +91,11 @@ const Navigator = (props) => {
             Case Info
           </ListItemText>
         </ListItem>
-        <ListItem button className={clsx(classes.item, classes.itemActiveItem)}>
+        <ListItem
+          button
+          className={clsx(classes.item, classes.itemActiveItem)}
+          onClick={() => other.setMenuItem("settings")}
+        >
           <ListItemIcon>
             <SettingsIcon />
           </ListItemIcon>

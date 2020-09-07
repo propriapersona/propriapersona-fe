@@ -19,6 +19,7 @@ const lightColor = "rgba(255, 255, 255, 0.7)";
 const styles = (theme) => ({
   secondaryBar: {
     zIndex: 0,
+    marginTop: -theme.spacing(12),
   },
   menuButton: {
     marginLeft: -theme.spacing(1),
@@ -38,7 +39,7 @@ const styles = (theme) => ({
   },
 });
 
-const Settings = (props) => {
+const Forms = (props) => {
   const { classes } = props;
 
   return (
@@ -50,40 +51,13 @@ const Settings = (props) => {
         position="static"
         elevation={0}
       >
-        <Toolbar>
-          <Grid container alignItems="center" spacing={1}>
-            <Grid item xs>
-              <Typography color="inherit" variant="h5" component="h1">
-                Welcome
-              </Typography>
-            </Grid>
-            <Grid item>
-              <Button
-                className={classes.button}
-                variant="outlined"
-                color="inherit"
-                size="small"
-              >
-                Foo
-              </Button>
-            </Grid>
-          </Grid>
-        </Toolbar>
-      </AppBar>
-      <AppBar
-        component="div"
-        className={classes.secondaryBar}
-        color="primary"
-        position="static"
-        elevation={0}
-      >
         <Tabs value={0} textColor="inherit">
-          <Tab textColor="inherit" label="Case Settings" />
-          <Tab textColor="inherit" label="Account Settings" />
+          <Tab textColor="inherit" label="My Forms" />
+          <Tab textColor="inherit" label="Add New Form" />
         </Tabs>
       </AppBar>
     </Paper>
   );
 };
 
-export default withStyles(styles)(Settings);
+export default withStyles(styles)(Forms);

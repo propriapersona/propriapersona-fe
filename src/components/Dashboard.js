@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import LoadPDF from "./LoadPDF.js";
 import SearchFormCard from "./SearchFormCard.js";
 import ViewFormCard from "./ViewFormCard.js";
@@ -13,6 +13,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Hidden from "@material-ui/core/Hidden";
 import Header from "./Header.js";
 import Settings from "./Settings.js";
+import Forms from "./Forms.js";
 
 let theme = createMuiTheme({
   palette: {
@@ -151,6 +152,8 @@ const styles = {
 
 const Dashboard = (props) => {
   const { classes } = props;
+  const [menuItem, setMenuItem] = useState("forms");
+  const [activeTab, setActiveTab] = useState("");
   console.log(classes);
 
   return (
@@ -158,13 +161,22 @@ const Dashboard = (props) => {
       <div className={classes.root}>
         <CssBaseline />
         <nav className={classes.drawer}>
-          <Navigator PaperProps={{ style: { width: drawerWidth } }} />
+          <Navigator
+            PaperProps={{ style: { width: drawerWidth } }}
+            setMenuItem={setMenuItem}
+          />
         </nav>
         <div className={classes.app}>
           <Header />
           <main className={classes.main}>
-            <Content />
-            <Settings />
+            {/* <Content /> */}
+            {menuItem === "forms" ? (
+              <Forms />
+            ) : menuItem === "settings" ? (
+              <Settings />
+            ) : (
+              "Error"
+            )}
           </main>
         </div>
       </div>

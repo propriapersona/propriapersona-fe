@@ -46,7 +46,7 @@ const Content = (props) => {
         color="default"
         elevation={0}
       >
-        <Toolbar>
+        {/* <Toolbar>
           <Grid container spacing={2} alignItems="center">
             <Grid item>
               <SearchIcon className={classes.block} color="inherit" />
@@ -62,7 +62,7 @@ const Content = (props) => {
               />
             </Grid>
           </Grid>
-        </Toolbar>
+        </Toolbar> */}
       </AppBar>
     </Paper>
   );
