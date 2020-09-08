@@ -185,3 +185,7 @@ const Dashboard = (props) => {
 };
 
 export default withStyles(styles)(Dashboard);
+
+// For reference:
+// Dashboard Theme - https://github.com/mui-org/material-ui/blob/master/docs/src/pages/premium-themes/paperbase/Navigator.js
+// Live Demo - https://material-ui.com/premium-themes/paperbase/#

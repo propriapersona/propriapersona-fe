@@ -15,7 +15,13 @@ const HomePage = () => {
         </div>
       </div>
       <section>
-        <div className="center-info">Test</div>
+        <div className="center-info">
+          <h2>How it Works:</h2>
+          <p>
+            Propria Persona will make it simple to manage aspects of your court
+            case. Fill out forms with ease.
+          </p>
+        </div>
       </section>
     </>
   );
