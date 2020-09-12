@@ -1,6 +1,13 @@
 import React from "react";
 import Nav from "./Nav.js";
 import Login from "./Login.js";
+import Card from "@material-ui/core/Card";
+import Typography from "@material-ui/core/Typography";
+import CardContent from "@material-ui/core/CardContent";
+import Grid from "@material-ui/core/Grid";
+import DescriptionIcon from "@material-ui/icons/Description";
+import AddCircleIcon from "@material-ui/icons/AddCircle";
+import GavelIcon from "@material-ui/icons/Gavel";
 
 const HomePage = () => {
   return (
@@ -15,13 +22,48 @@ const HomePage = () => {
         </div>
       </div>
       <section>
-        <div className="center-info">
+        <Card>
+          <CardContent>
+            <Grid container>
+              <Grid item sm>
+                <AddCircleIcon />
+                <Typography variant="h6">
+                  Easily Add Forms to Your Case
+                </Typography>
+                <Typography variant="body">
+                  Once your profile is complete, you can search for forms and
+                  your information will be pre-populated.
+                </Typography>
+              </Grid>
+
+              <Grid item sm>
+                <DescriptionIcon />
+                <Typography variant="h6">
+                  Keep Track of Your Case Status
+                </Typography>
+                <Typography variant="body">
+                  Keep track of forms that you have filed with the court,
+                  upcoming hearings, and more.
+                </Typography>
+              </Grid>
+              <Grid item sm>
+                <GavelIcon />
+                <Typography variant="h6">Understand Court Procedure</Typography>
+                <Typography variant="body">
+                  Learn about proper procedures to ensure your documents are
+                  filed correctly.
+                </Typography>
+              </Grid>
+            </Grid>
+          </CardContent>
+        </Card>
+        {/* <div className="center-info">
           <h2>How it Works:</h2>
           <p>
             Propria Persona will make it simple to manage aspects of your court
             case. Fill out forms with ease.
           </p>
-        </div>
+        </div> */}
       </section>
     </>
   );
