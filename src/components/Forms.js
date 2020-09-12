@@ -19,7 +19,7 @@ const lightColor = "rgba(255, 255, 255, 0.7)";
 const styles = (theme) => ({
   secondaryBar: {
     zIndex: 0,
-    marginTop: -theme.spacing(12),
+    // marginTop: -theme.spacing(12),
   },
   menuButton: {
     marginLeft: -theme.spacing(1),

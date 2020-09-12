@@ -112,10 +112,10 @@ const Header = (props) => {
         position="static"
         elevation={0}
       >
-        {/* <Tabs value={0} textColor="inherit">
+        <Tabs value={0} textColor="inherit">
           <Tab textColor="inherit" label="My Forms" />
           <Tab textColor="inherit" label="Add New Form" />
-        </Tabs> */}
+        </Tabs>
       </AppBar>
     </>
   );
