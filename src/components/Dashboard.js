@@ -153,7 +153,6 @@ const styles = {
 const Dashboard = (props) => {
   const { classes } = props;
   const [menuItem, setMenuItem] = useState("forms");
-  const [activeTab, setActiveTab] = useState("");
   console.log(classes);
 
   return (

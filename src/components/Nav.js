@@ -71,7 +71,7 @@ const Nav = () => {
                 Login
               </Button>
             </Link>
-            <Link to="#">
+            <Link to="/about">
               <Button color="inherit" className={classes.link}>
                 About
               </Button>

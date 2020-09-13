@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
@@ -43,6 +43,11 @@ const styles = (theme) => ({
 
 const Header = (props) => {
   const { classes } = props;
+  const [value, setValue] = useState(0);
+
+  const handleChange = (e, value) => {
+    setValue(value);
+  };
 
   return (
     <>
@@ -112,7 +117,7 @@ const Header = (props) => {
         position="static"
         elevation={0}
       >
-        <Tabs value={0} textColor="inherit">
+        <Tabs value={value} onChange={handleChange} textColor="inherit">
           <Tab textColor="inherit" label="My Forms" />
           <Tab textColor="inherit" label="Add New Form" />
         </Tabs>

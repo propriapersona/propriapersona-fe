@@ -36,13 +36,16 @@ const styles = (theme) => ({
   button: {
     borderColor: lightColor,
   },
+  paper: {
+    padding: 0,
+  },
 });
 
 const Settings = (props) => {
   const { classes } = props;
 
   return (
-    <Paper>
+    <Paper className={classes.paper}>
       <AppBar
         component="div"
         className={classes.secondaryBar}

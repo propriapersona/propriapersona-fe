@@ -8,6 +8,7 @@ import Dashboard from "./components/Dashboard.js";
 import SignUp from "./components/SignUp";
 import LoadPDF from "./components/LoadPDF";
 import HomePage from "./components/HomePage";
+import About from "./components/About.js";
 
 function App() {
   return (
@@ -16,9 +17,13 @@ function App() {
         <Route exact path="/" component={HomePage} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
-        <PrivateRoute exact path="/dashboard" component={Dashboard} />
+        <Route path="/about" component={About} />
+        <PrivateRoute
+          exact
+          path={`/:username/dashboard`}
+          component={Dashboard}
+        />
         <PrivateRoute exact path="/forms" component={LoadPDF} />
-        {/* <Route component={Login} /> */}
       </Switch>
     </div>
   );

@@ -57,7 +57,7 @@ const Login = () => {
       .then((res) => {
         localStorage.setItem("token", res.data.token);
         console.log(res);
-        history.push("/dashboard");
+        history.push(`/${res.data.username}/dashboard`);
       })
       .catch((err) => console.log(err));
   };
@@ -65,14 +65,6 @@ const Login = () => {
   return (
     <Container component="main" maxWidth="xs" className={classes.container}>
       <div className={classes.paper}>
-        {/* <Box
-          component="form"
-          display="flex"
-          flexDirection="column"
-          // width={400}
-          justifyContent="center"
-          onSubmit={handleSubmit}
-        > */}
         <Avatar className={classes.avatar}>
           <SecurityIcon />
         </Avatar>
@@ -97,7 +89,6 @@ const Login = () => {
             Login
           </Button>
         </form>
-        {/* </Box> */}
       </div>
     </Container>
   );
