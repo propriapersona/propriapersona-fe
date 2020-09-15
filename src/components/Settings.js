@@ -85,6 +85,13 @@ const Settings = (props) => {
           <Tab textColor="inherit" label="Account Settings" />
         </Tabs>
       </AppBar>
+      <TextField name="first_name" />
+      <TextField name="last_name" />
+      <TextField name="address" />
+      <TextField name="city" />
+      <TextField name="state" />
+      <TextField name="zip" />
+      <TextField name="case_number" />
     </Paper>
   );
 };
