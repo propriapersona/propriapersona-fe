@@ -1,11 +1,27 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles((theme) => ({
   footer: {
     backgroundColor: "#17404F",
     width: "100%",
-    height: "75px",
+    height: "175px",
+    // zIndex: 1302,
+    position: "relative",
+  },
+  mainContainer: {
+    position: "absolute",
+  },
+  link: {
+    color: "white",
+    fontSize: "0.75rem",
+    fontWeight: "bold",
+    textDecoration: "none",
+  },
+  gridItem: {
+    margin: "3em",
   },
 }));
 
@@ -14,7 +30,31 @@ const Footer = () => {
 
   return (
     <footer className={classes.footer}>
-      <p>Test Content</p>
+      <Grid container justify="center" className={classes.mainContainer}>
+        <Grid item className={classes.gridItem}>
+          <Grid container direction="column" spacing={2}>
+            <Grid item component={Link} to="/" className={classes.link}>
+              Home
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid item className={classes.gridItem}>
+          <Grid container direction="column" spacing={2}>
+            <Grid item component={Link} to="/about" className={classes.link}>
+              About
+            </Grid>
+            <Grid item component={Link} to="/signup" className={classes.link}>
+              Sign Up
+            </Grid>
+            <Grid item className={classes.link}>
+              Contact Us
+            </Grid>
+            <Grid item className={classes.link}>
+              Services
+            </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
     </footer>
   );
 };
