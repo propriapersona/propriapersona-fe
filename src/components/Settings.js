@@ -53,7 +53,7 @@ const Settings = (props) => {
         position="static"
         elevation={0}
       >
-        <Toolbar>
+        {/* <Toolbar>
           <Grid container alignItems="center" spacing={1}>
             <Grid item xs>
               <Typography color="inherit" variant="h5" component="h1">
@@ -71,9 +71,9 @@ const Settings = (props) => {
               </Button>
             </Grid>
           </Grid>
-        </Toolbar>
+        </Toolbar> */}
       </AppBar>
-      <AppBar
+      {/* <AppBar
         component="div"
         className={classes.secondaryBar}
         color="primary"
@@ -84,14 +84,22 @@ const Settings = (props) => {
           <Tab textColor="inherit" label="Case Settings" />
           <Tab textColor="inherit" label="Account Settings" />
         </Tabs>
-      </AppBar>
-      <TextField name="first_name" />
-      <TextField name="last_name" />
-      <TextField name="address" />
-      <TextField name="city" />
-      <TextField name="state" />
-      <TextField name="zip" />
-      <TextField name="case_number" />
+      </AppBar> */}
+      <Grid container spacing={2}>
+        <Grid item sm>
+          <TextField name="first_name" label="First Name" />
+          <TextField name="last_name" label="Last Name" />
+        </Grid>
+        <Grid item xs>
+          <TextField name="address" label="Address" />
+          <TextField name="address2" label="Apt/Unit/PO Box" />
+          <TextField name="city" label="City" />
+          <TextField name="state" label="State" />
+          <TextField name="zip" label="Zip Code" />
+        </Grid>
+      </Grid>
+
+      <TextField name="case_number" label="Case Number" />
     </Paper>
   );
 };

@@ -9,6 +9,7 @@ import SignUp from "./components/SignUp";
 import LoadPDF from "./components/LoadPDF";
 import HomePage from "./components/HomePage";
 import About from "./components/About.js";
+import Footer from "./components/Footer.js";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         />
         <PrivateRoute exact path="/forms" component={LoadPDF} />
       </Switch>
+      <Footer />
     </div>
   );
 }
