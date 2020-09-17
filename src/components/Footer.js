@@ -5,14 +5,13 @@ import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles((theme) => ({
   footer: {
-    backgroundColor: "#17404F",
     width: "100%",
-    height: "175px",
-    // zIndex: 1302,
+    zIndex: 1302,
     position: "relative",
   },
   mainContainer: {
     position: "absolute",
+    backgroundColor: "#17404F",
   },
   link: {
     color: "white",
