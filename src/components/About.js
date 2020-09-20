@@ -111,37 +111,6 @@ const About = () => {
             </Grid>
           </Grid>
         </Grid>
-        {/* <Grid item>
-          <Grid container justify="space-evenly" alignItems="center">
-            <Grid item justify="flex-start">
-              <img src={about_forms} alt="forms" />
-            </Grid>
-            <Grid item>
-              <Typography variant="body1" className={classes.formTextContainer}>
-                Once your profile is set up, you can search for different
-                government forms that you could file on your case. With your
-                profile information complete, a lot of the preliminary
-                information can be completed. This will help save you some time
-                in filling out the rest of the forms. You can also save your
-                progress and come back to finish later.
-              </Typography>
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item>
-          <Grid container justify="space-evenly" alignItems="center">
-            <Grid item>
-              <Typography variant="body1" display="block">
-                Keep track of all of the forms that you have filed on your case.
-                If something needs to be amended or changed, you'll have it
-                readily available.
-              </Typography>
-            </Grid>
-            <Grid item>
-              <img src={about_case} alt="case" />
-            </Grid>
-          </Grid>
-        </Grid> */}
       </Grid>
     </>
   );

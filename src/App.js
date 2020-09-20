@@ -6,7 +6,6 @@ import { Route, Switch } from "react-router-dom";
 import PrivateRoute from "./components/PrivateRoute.js";
 import Dashboard from "./components/Dashboard.js";
 import SignUp from "./components/SignUp";
-import LoadPDF from "./components/LoadPDF";
 import HomePage from "./components/HomePage";
 import About from "./components/About.js";
 import Footer from "./components/Footer.js";
@@ -24,7 +23,6 @@ function App() {
           path={`/:username/dashboard`}
           component={Dashboard}
         />
-        <PrivateRoute exact path="/forms" component={LoadPDF} />
       </Switch>
       <Footer />
     </div>
