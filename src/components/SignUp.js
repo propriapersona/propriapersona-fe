@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import axiosWithAuth from "../utils/axiosAuth.js";
-import { Box, Button, TextField, Grid } from "@material-ui/core";
+import { Box, Button, TextField, Grid, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Nav from "./Nav.js";
 import signup_main from "../assets/signup_main.svg";
@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
   mainContainer: {
     height: "90vh",
     backgroundColor: "#E3E3E3",
+    // paddingTop: "4em",
   },
 }));
 
@@ -43,8 +44,14 @@ const SignUp = () => {
   return (
     <>
       <Nav />
-      <Grid container className={classes.mainContainer}>
+      <Grid
+        container
+        className={classes.mainContainer}
+        justify="space-around"
+        alignItems="center"
+      >
         <Grid item>
+          <Typography variant="h4">Let's Get Started</Typography>
           <Box
             component="form"
             display="flex"
@@ -80,7 +87,9 @@ const SignUp = () => {
             <Button type="submit">Sign Up</Button>
           </Box>
         </Grid>
-        <Grid item>{/* <img src={signup_main} alt="signup main" /> */}</Grid>
+        <Grid item>
+          <img src={signup_main} alt="signup main" />
+        </Grid>
       </Grid>
     </>
   );

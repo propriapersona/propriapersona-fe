@@ -57,17 +57,13 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-Here's a blank template to get started:
-**To avoid retyping too much info. Do a search and replace with your text editor for the following:**
-`pshushereba`, `repo_name`, `twitter_handle`, `email`
+<!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
 ### Built With
 
-- []()
-- []()
-- []()
+- [React](https://reactjs.org/)
+- [Node](https://nodejs.org/en/)
+- [Material UI](https://material-ui.com/)
 
 <!-- GETTING STARTED -->
 
@@ -90,7 +86,7 @@ npm install npm@latest -g
 1. Clone the repo
 
 ```sh
-git clone https://github.com/pshushereba/repo_name.git
+git clone https://github.com/propriapersona/propriapersona-fe.git
 ```
 
 2. Install NPM packages

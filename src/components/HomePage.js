@@ -1,6 +1,6 @@
 import React from "react";
 import Nav from "./Nav.js";
-import Login from "./Login.js";
+import LoginForm from "./LoginForm.js";
 import Card from "@material-ui/core/Card";
 import Typography from "@material-ui/core/Typography";
 import CardContent from "@material-ui/core/CardContent";
@@ -15,7 +15,7 @@ const HomePage = () => {
       <Nav />
       <div className="hero-container">
         <div className="login-wrapper">
-          <Login />
+          <LoginForm />
         </div>
         <div className="uvp-wrapper">
           <h1>Value Proposition Here</h1>
