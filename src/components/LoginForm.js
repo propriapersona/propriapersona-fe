@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
   },
   container: {
-    backgroundColor: "rgba(255, 255, 255, 0.7)",
+    backgroundColor: "transparent",
   },
 }));
 

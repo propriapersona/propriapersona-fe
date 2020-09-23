@@ -51,7 +51,9 @@ const SignUp = () => {
         alignItems="center"
       >
         <Grid item>
-          <Typography variant="h4">Let's Get Started</Typography>
+          <Typography variant="h4" gutterBottom="true">
+            Let's Get Started
+          </Typography>
           <Box
             component="form"
             display="flex"
