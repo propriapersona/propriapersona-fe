@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
@@ -13,6 +13,9 @@ import SearchIcon from "@material-ui/icons/Search";
 import RefreshIcon from "@material-ui/icons/Refresh";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
+import { useParams } from "react-router-dom";
+import { connect } from "react-redux";
+import { getAccount } from "../actions/index.js";
 
 const lightColor = "rgba(255, 255, 255, 0.7)";
 
@@ -42,7 +45,15 @@ const styles = (theme) => ({
 });
 
 const Settings = (props) => {
-  const { classes } = props;
+  const { username } = useParams();
+  const [isEditing, setIsEditing] = useState(true);
+  console.log(username);
+
+  const { classes, getAccount } = props;
+
+  useEffect(() => {
+    getAccount(username);
+  }, [isEditing]);
 
   return (
     <Paper className={classes.paper}>
@@ -87,8 +98,10 @@ const Settings = (props) => {
       </AppBar> */}
       <Grid container spacing={2}>
         <Grid item sm>
-          <TextField name="first_name" label="First Name" />
-          <TextField name="last_name" label="Last Name" />
+          <fieldset>
+            <TextField name="first_name" label="First Name" />
+            <TextField name="last_name" label="Last Name" />
+          </fieldset>
         </Grid>
         <Grid item xs>
           <TextField name="address" label="Address" />
@@ -100,8 +113,18 @@ const Settings = (props) => {
       </Grid>
 
       <TextField name="case_number" label="Case Number" />
+      <TextField name="case_type" label="Case Type" />
+      <TextField name="party_name" label="Party Name" />
     </Paper>
   );
 };
 
-export default withStyles(styles)(Settings);
+const mapStateToProps = (state) => {
+  return {
+    account: state.accountReducer.account,
+  };
+};
+
+export default connect(mapStateToProps, { getAccount })(
+  withStyles(styles)(Settings)
+);

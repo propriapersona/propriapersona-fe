@@ -4,13 +4,30 @@ export const GET_USER_START = "GET_USERS_START";
 export const GET_USER_SUCCESS = "GET_USERS_SUCCESS";
 export const GET_USER_FAIL = "GET_USERS_FAIL";
 
+// User Account Reducer Action Variables
+
+export const GET_ACCOUNT_START = "GET_ACCOUNT_START";
+export const GET_ACCOUNT_SUCCESS = "GET_ACCOUNT_SUCCESS";
+export const GET_ACCOUNT_FAIL = "GET_ACCOUNT_FAIL";
+
 export const getUsers = () => (dispatch) => {
   console.log("getUsers Fired");
   dispatch({ type: GET_USER_START });
   axiosWithAuth()
-    .get("https://tripsplit-1022.herokuapp.com/users")
+    .get("")
     .then((res) => {
       dispatch({ type: GET_USER_SUCCESS, payload: res.data });
     })
     .catch((err) => dispatch({ type: GET_USER_FAIL, payload: err }));
+};
+
+export const getAccount = (username) => (dispatch) => {
+  console.log("getAccount Fired");
+  dispatch({ type: GET_ACCOUNT_START });
+  axiosWithAuth()
+    .get(`https://proper-prod.herokuapp.com/api/account/${username}`)
+    .then((res) => {
+      dispatch({ type: GET_ACCOUNT_SUCCESS, payload: res.data });
+    })
+    .catch((err) => dispatch({ type: GET_ACCOUNT_FAIL, payload: err }));
 };
