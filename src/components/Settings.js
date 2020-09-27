@@ -46,14 +46,37 @@ const styles = (theme) => ({
 
 const Settings = (props) => {
   const { username } = useParams();
-  const [isEditing, setIsEditing] = useState(true);
-  console.log(username);
-
-  const { classes, getAccount } = props;
+  const [isEditing, setIsEditing] = useState(false);
+  const [updatedAccount, setUpdatedAccount] = useState({
+    id: 0,
+    first_name: "",
+    last_name: "",
+    address: "",
+    address2: "",
+    city: "",
+    state: "",
+    zip: "",
+    case_number: "",
+    case_type: "",
+    party_name: "",
+  });
 
   useEffect(() => {
     getAccount(username);
-  }, [isEditing]);
+    setUpdatedAccount(props.account);
+  }, []);
+
+  const { classes, getAccount } = props;
+  console.log(props.account);
+
+  const handleChange = (event) => {
+    setUpdatedAccount({
+      ...updatedAccount,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  console.log(updatedAccount);
 
   return (
     <Paper className={classes.paper}>
@@ -98,23 +121,79 @@ const Settings = (props) => {
       </AppBar> */}
       <Grid container spacing={2}>
         <Grid item sm>
-          <fieldset>
-            <TextField name="first_name" label="First Name" />
-            <TextField name="last_name" label="Last Name" />
+          <fieldset disabled={isEditing}>
+            <TextField
+              name="first_name"
+              label="First Name"
+              value={updatedAccount.first_name}
+              onChange={handleChange}
+            />
+            <TextField
+              name="last_name"
+              label="Last Name"
+              value={updatedAccount.last_name}
+              onChange={handleChange}
+            />
           </fieldset>
         </Grid>
         <Grid item xs>
-          <TextField name="address" label="Address" />
-          <TextField name="address2" label="Apt/Unit/PO Box" />
-          <TextField name="city" label="City" />
-          <TextField name="state" label="State" />
-          <TextField name="zip" label="Zip Code" />
+          <fieldset disabled={isEditing}>
+            <TextField
+              name="address"
+              label="Address"
+              value={updatedAccount.address}
+              onChange={handleChange}
+            />
+            <TextField
+              name="address2"
+              label="Apt/Unit/PO Box"
+              value={updatedAccount.address2}
+              onChange={handleChange}
+            />
+            <TextField
+              name="city"
+              label="City"
+              value={updatedAccount.city}
+              onChange={handleChange}
+            />
+            <TextField
+              name="state"
+              label="State"
+              value={updatedAccount.state}
+              onChange={handleChange}
+            />
+            <TextField
+              name="zip"
+              label="Zip Code"
+              value={updatedAccount.zip}
+              onChange={handleChange}
+            />
+          </fieldset>
+        </Grid>
+        <Grid item xs>
+          <fieldset disabled={isEditing}>
+            <TextField
+              name="case_number"
+              label="Case Number"
+              value={updatedAccount.case_number}
+              onChange={handleChange}
+            />
+            <TextField
+              name="case_type"
+              label="Case Type"
+              value={updatedAccount.case_type}
+              onChange={handleChange}
+            />
+            <TextField
+              name="party_name"
+              label="Party Name"
+              value={updatedAccount.party_name}
+              onChange={handleChange}
+            />
+          </fieldset>
         </Grid>
       </Grid>
-
-      <TextField name="case_number" label="Case Number" />
-      <TextField name="case_type" label="Case Type" />
-      <TextField name="party_name" label="Party Name" />
+      <Button onClick={() => setIsEditing(!isEditing)}>Edit</Button>
     </Paper>
   );
 };
