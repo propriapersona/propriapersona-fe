@@ -2,11 +2,14 @@ import React, { useState, useEffect } from "react";
 import { PDFDocument, rgb, StandardFonts, degrees } from "pdf-lib";
 
 const LoadPDF = () => {
-  const [pdfInfo, setPdfInfo] = useState({});
+  const [pdfInfo, setPdfInfo] = useState([]);
+  let newByteData;
 
   useEffect(() => {
-    modifyPdf();
+    newByteData = modifyPdf();
   }, []);
+
+  // const newDoc = PDFDocument.load(newByteData);
 
   const modifyPdf = async () => {
     const existingPdfBytes = await fetch(
@@ -33,16 +36,25 @@ const LoadPDF = () => {
     });
 
     const pdfBytes = await pdfDoc.save();
-    setPdfInfo(pdfBytes);
+    // setPdfInfo(pdfBytes);
     console.log(pdfBytes);
     const base64DataUri = await pdfDoc.saveAsBase64({ dataUri: true });
     console.log("base64", base64DataUri);
-    const image = document.createElement("img");
-    image.src = base64DataUri;
-    console.log(image);
-    document.body.appendChild(image);
+    // const image = document.createElement("img");
+    const testFrame = document.createElement("iframe");
+    testFrame.src = base64DataUri;
+    testFrame.title = "testing";
+    // setPdfInfo(testFrame);
+    const pdfData = base64DataUri;
+    return pdfData;
+    // image.src = base64DataUri;
+    // console.log(image);
+    // setPdfInfo(image);
+    // return image;
   };
-  return <div>{/* <div title="test">{pdfInfo}</div> */}</div>;
+  console.log("pdfInfo", pdfInfo);
+  console.log(typeof pdfInfo);
+  return <div>{/* <embed src={newDoc} type="application/pdf" /> */}</div>;
 };
 
 export default LoadPDF;

@@ -2,6 +2,7 @@ import React from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
+import Container from "@material-ui/core/Container";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
@@ -13,6 +14,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import RefreshIcon from "@material-ui/icons/Refresh";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
+import LoadPDF from "./LoadPDF.js";
 
 const lightColor = "rgba(255, 255, 255, 0.7)";
 
@@ -44,18 +46,9 @@ const Forms = (props) => {
 
   return (
     <Paper>
-      <AppBar
-        component="div"
-        className={classes.secondaryBar}
-        color="primary"
-        position="static"
-        elevation={0}
-      >
-        <Tabs value={0} textColor="inherit">
-          <Tab textColor="inherit" label="My Forms" />
-          <Tab textColor="inherit" label="Add New Form" />
-        </Tabs>
-      </AppBar>
+      <Container>
+        <LoadPDF />
+      </Container>
     </Paper>
   );
 };
