@@ -3,10 +3,10 @@ import { PDFDocument, rgb, StandardFonts, degrees } from "pdf-lib";
 
 const LoadPDF = () => {
   const [pdfInfo, setPdfInfo] = useState([]);
-  let newByteData;
+  // let newByteData;
 
   useEffect(() => {
-    newByteData = modifyPdf();
+    modifyPdf();
   }, []);
 
   // const newDoc = PDFDocument.load(newByteData);
@@ -36,25 +36,16 @@ const LoadPDF = () => {
     });
 
     const pdfBytes = await pdfDoc.save();
-    // setPdfInfo(pdfBytes);
+    const docUrl = URL.createObjectURL(
+      new Blob(pdfBytes, { type: "application/pdf" })
+    );
+    setPdfInfo(docUrl);
     console.log(pdfBytes);
-    const base64DataUri = await pdfDoc.saveAsBase64({ dataUri: true });
-    console.log("base64", base64DataUri);
-    // const image = document.createElement("img");
-    const testFrame = document.createElement("iframe");
-    testFrame.src = base64DataUri;
-    testFrame.title = "testing";
-    // setPdfInfo(testFrame);
-    const pdfData = base64DataUri;
-    return pdfData;
-    // image.src = base64DataUri;
-    // console.log(image);
-    // setPdfInfo(image);
-    // return image;
+    // const base64DataUri = await pdfDoc.saveAsBase64({ dataUri: true });
+    // const pdfData = base64DataUri;
   };
   console.log("pdfInfo", pdfInfo);
-  console.log(typeof pdfInfo);
-  return <div>{/* <embed src={newDoc} type="application/pdf" /> */}</div>;
+  return <>{<iframe title="test-frame" src={pdfInfo} />}</>;
 };
 
 export default LoadPDF;

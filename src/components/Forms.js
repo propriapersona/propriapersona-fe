@@ -39,6 +39,9 @@ const styles = (theme) => ({
   button: {
     borderColor: lightColor,
   },
+  container: {
+    width: "100%",
+  },
 });
 
 const Forms = (props) => {
@@ -46,7 +49,7 @@ const Forms = (props) => {
 
   return (
     <Paper>
-      <Container>
+      <Container className={classes.container}>
         <LoadPDF />
       </Container>
     </Paper>
