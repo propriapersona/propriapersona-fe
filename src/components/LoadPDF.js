@@ -13,7 +13,7 @@ const LoadPDF = () => {
 
   const modifyPdf = async () => {
     const existingPdfBytes = await fetch(
-      "https://pdf-lib.js.org/assets/with_update_sections.pdf"
+      "https://www.courts.ca.gov/documents/cm010.pdf"
     ).then((res) => res.arrayBuffer());
     console.log("existingPdfBytes", existingPdfBytes);
 
@@ -38,7 +38,7 @@ const LoadPDF = () => {
     const pdfBytes = await pdfDoc.save();
     const docUrl = URL.createObjectURL(
       new Blob(pdfBytes, { type: "application/pdf" })
-    );
+    ).replace("blob:", "");
     setPdfInfo(docUrl);
     console.log(pdfBytes);
     // const base64DataUri = await pdfDoc.saveAsBase64({ dataUri: true });
