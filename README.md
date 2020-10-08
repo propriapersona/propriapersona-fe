@@ -137,11 +137,11 @@ Project Link: [https://github.com/pshushereba/repo_name](https://github.com/pshu
 
 <!-- ACKNOWLEDGEMENTS -->
 
-## Acknowledgements
+<!-- ## Acknowledgements
 
 - []()
 - []()
-- []()
+- []() -->
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->

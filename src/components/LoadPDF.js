@@ -3,21 +3,20 @@ import { PDFDocument, rgb, StandardFonts, degrees } from "pdf-lib";
 
 const LoadPDF = () => {
   const [pdfInfo, setPdfInfo] = useState([]);
-  // let newByteData;
 
   useEffect(() => {
     modifyPdf();
   }, []);
 
-  // const newDoc = PDFDocument.load(newByteData);
-
   const modifyPdf = async () => {
     const existingPdfBytes = await fetch(
-      "https://www.courts.ca.gov/documents/cm010.pdf"
+      "https://cors-anywhere.herokuapp.com/https://www.courts.ca.gov/documents/cm010.pdf"
     ).then((res) => res.arrayBuffer());
     console.log("existingPdfBytes", existingPdfBytes);
 
-    const pdfDoc = await PDFDocument.load(existingPdfBytes);
+    const pdfDoc = await PDFDocument.load(existingPdfBytes, {
+      ignoreEncryption: true,
+    });
     console.log("pdfDoc", pdfDoc);
     const helveticaFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
 

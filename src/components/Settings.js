@@ -15,7 +15,6 @@ import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
 import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
-import { getAccount } from "../actions/index.js";
 
 const lightColor = "rgba(255, 255, 255, 0.7)";
 
@@ -45,7 +44,6 @@ const styles = (theme) => ({
 });
 
 const Settings = (props) => {
-  const { username } = useParams();
   const [isEditing, setIsEditing] = useState(false);
   const [updatedAccount, setUpdatedAccount] = useState({
     id: 0,
@@ -62,11 +60,10 @@ const Settings = (props) => {
   });
 
   useEffect(() => {
-    getAccount(username);
     setUpdatedAccount(props.account);
   }, []);
 
-  const { classes, getAccount } = props;
+  const { classes } = props;
   console.log(props.account);
 
   const handleChange = (event) => {
@@ -204,6 +201,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { getAccount })(
-  withStyles(styles)(Settings)
-);
+export default connect(mapStateToProps, {})(withStyles(styles)(Settings));
