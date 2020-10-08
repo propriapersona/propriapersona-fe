@@ -58,12 +58,12 @@ const Settings = (props) => {
     case_type: "",
     party_name: "",
   });
+  const { classes } = props;
 
   useEffect(() => {
     setUpdatedAccount(props.account);
   }, []);
 
-  const { classes } = props;
   console.log(props.account);
 
   const handleChange = (event) => {

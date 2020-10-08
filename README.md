@@ -164,5 +164,5 @@ Project Link: [https://github.com/pshushereba/repo_name](https://github.com/pshu
 
 - [ ] - Move theme from dashboard to separate folder / file.
 - [ ] - Move theme provider from dashboard to app component.
-- [ ] - Pull styles out of App.css and place in HomePage.js using makeStyles.
+- [x] - Pull styles out of App.css and place in HomePage.js using makeStyles.
 - [ ] - Fix component file structure.

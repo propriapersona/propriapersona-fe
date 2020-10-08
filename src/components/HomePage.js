@@ -8,17 +8,45 @@ import Grid from "@material-ui/core/Grid";
 import DescriptionIcon from "@material-ui/icons/Description";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 import GavelIcon from "@material-ui/icons/Gavel";
+import { withStyles } from "@material-ui/core/styles";
+import heroImg from "../assets/heroImg.svg";
 
-const HomePage = () => {
+const styles = (theme) => ({
+  heroContainer: {
+    width: "100%",
+    height: "90vh",
+    /* margin-top: -25px; */
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundImage: `url(${heroImg})`,
+    display: "flex",
+    justify: "center",
+    align: "center",
+  },
+  loginWrapper: {
+    width: "40%",
+    backgroundColor: "rgb(255, 255, 255, 0.7)",
+  },
+  uvpWrapper: {
+    width: "40%",
+    textAlign: "center",
+  },
+});
+
+const HomePage = (props) => {
+  const { classes } = props;
+
   return (
     <>
       <Nav />
-      <div className="hero-container">
-        <div className="login-wrapper">
+      <div className={classes.heroContainer}>
+        <div className={classes.loginWrapper}>
           <LoginForm />
         </div>
-        <div className="uvp-wrapper">
-          <h1>Value Proposition Here</h1>
+        <div className={classes.uvpWrapper}>
+          <Typography variant="h3" textAlign="center">
+            Value Proposition Here
+          </Typography>
         </div>
       </div>
       <section>
@@ -62,4 +90,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default withStyles(styles)(HomePage);
