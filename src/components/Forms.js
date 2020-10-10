@@ -49,7 +49,9 @@ const Forms = (props) => {
 
   return (
     <Paper>
-      <Container className={classes.container}>{/* <LoadPDF /> */}</Container>
+      <Container className={classes.container}>
+        <LoadPDF />
+      </Container>
     </Paper>
   );
 };

@@ -7,10 +7,10 @@ const LoadPDF = () => {
   useEffect(() => {
     modifyPdf();
   }, []);
-
+  // https://cors-anywhere.herokuapp.com/https://www.courts.ca.gov/documents/cm010.pdf
   const modifyPdf = async () => {
     const existingPdfBytes = await fetch(
-      "https://cors-anywhere.herokuapp.com/https://www.courts.ca.gov/documents/cm010.pdf"
+      "https://pdf-lib.js.org/assets/with_update_sections.pdf"
     ).then((res) => res.arrayBuffer());
     console.log("existingPdfBytes", existingPdfBytes);
 
@@ -44,7 +44,17 @@ const LoadPDF = () => {
     // const pdfData = base64DataUri;
   };
   console.log("pdfInfo", pdfInfo);
-  return <>{<iframe title="test-frame" src={pdfInfo} />}</>;
+  return (
+    <>
+      {
+        <iframe
+          title="test-frame"
+          type="application/pdf"
+          src={pdfInfo}
+        ></iframe>
+      }
+    </>
+  );
 };
 
 export default LoadPDF;
