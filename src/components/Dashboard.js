@@ -153,7 +153,7 @@ const styles = {
 const Dashboard = (props) => {
   const { classes, getAccount } = props;
   const { username } = useParams();
-  const [menuItem, setMenuItem] = useState("forms");
+  const [menuItem, setMenuItem] = useState("settings");
 
   useEffect(() => {
     getAccount(username);
