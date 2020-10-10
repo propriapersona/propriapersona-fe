@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.css";
-import Nav from "./components/Nav.js";
 import Login from "./components/Login.js";
 import { Route, Switch } from "react-router-dom";
 import PrivateRoute from "./components/PrivateRoute.js";

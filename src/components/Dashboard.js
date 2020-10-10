@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navigator from "./Navigator.js";
 import Content from "./Content.js";
 import {
@@ -11,6 +11,9 @@ import Hidden from "@material-ui/core/Hidden";
 import Header from "./Header.js";
 import Settings from "./Settings.js";
 import Forms from "./Forms.js";
+import { useParams } from "react-router-dom";
+import { connect } from "react-redux";
+import { getAccount } from "../actions/index.js";
 
 let theme = createMuiTheme({
   palette: {
@@ -148,10 +151,17 @@ const styles = {
 };
 
 const Dashboard = (props) => {
-  const { classes } = props;
-  const [menuItem, setMenuItem] = useState("forms");
+  const { classes, getAccount } = props;
+  const { username } = useParams();
+  const [menuItem, setMenuItem] = useState("settings");
+
+  useEffect(() => {
+    getAccount(username);
+  }, []);
 
   console.log(classes);
+  console.log(username);
+  console.log(props);
 
   return (
     <ThemeProvider theme={theme}>
@@ -181,7 +191,15 @@ const Dashboard = (props) => {
   );
 };
 
-export default withStyles(styles)(Dashboard);
+const mapStateToProps = (state) => {
+  return {
+    account: state.accountReducer.account,
+  };
+};
+
+export default connect(mapStateToProps, { getAccount })(
+  withStyles(styles)(Dashboard)
+);
 
 // For reference:
 // Dashboard Theme - https://github.com/mui-org/material-ui/blob/master/docs/src/pages/premium-themes/paperbase/Navigator.js

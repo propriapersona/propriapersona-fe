@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
+import { spacing } from "@material-ui/system";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
+import Divider from "@material-ui/core/Divider";
 import Tooltip from "@material-ui/core/Tooltip";
 import IconButton from "@material-ui/core/IconButton";
 import { withStyles } from "@material-ui/core/styles";
@@ -15,7 +17,6 @@ import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
 import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
-import { getAccount } from "../actions/index.js";
 
 const lightColor = "rgba(255, 255, 255, 0.7)";
 
@@ -42,10 +43,12 @@ const styles = (theme) => ({
   paper: {
     padding: 0,
   },
+  divider: {
+    //
+  },
 });
 
 const Settings = (props) => {
-  const { username } = useParams();
   const [isEditing, setIsEditing] = useState(false);
   const [updatedAccount, setUpdatedAccount] = useState({
     id: 0,
@@ -60,13 +63,12 @@ const Settings = (props) => {
     case_type: "",
     party_name: "",
   });
+  const { classes } = props;
 
   useEffect(() => {
-    getAccount(username);
     setUpdatedAccount(props.account);
   }, []);
 
-  const { classes, getAccount } = props;
   console.log(props.account);
 
   const handleChange = (event) => {
@@ -119,9 +121,11 @@ const Settings = (props) => {
           <Tab textColor="inherit" label="Account Settings" />
         </Tabs>
       </AppBar> */}
-      <Grid container spacing={2}>
-        <Grid item sm>
-          <fieldset disabled={isEditing}>
+      <fieldset disabled={isEditing}>
+        <Grid container direction="column">
+          <Grid item sm>
+            <Typography>Personal Information</Typography>
+            <Divider />
             <TextField
               name="first_name"
               label="First Name"
@@ -134,10 +138,8 @@ const Settings = (props) => {
               value={updatedAccount.last_name}
               onChange={handleChange}
             />
-          </fieldset>
-        </Grid>
-        <Grid item xs>
-          <fieldset disabled={isEditing}>
+          </Grid>
+          <Grid item sm>
             <TextField
               name="address"
               label="Address"
@@ -168,10 +170,10 @@ const Settings = (props) => {
               value={updatedAccount.zip}
               onChange={handleChange}
             />
-          </fieldset>
-        </Grid>
-        <Grid item xs>
-          <fieldset disabled={isEditing}>
+          </Grid>
+          <Grid item sm>
+            <Typography>Case Information</Typography>
+            <Divider />
             <TextField
               name="case_number"
               label="Case Number"
@@ -190,10 +192,10 @@ const Settings = (props) => {
               value={updatedAccount.party_name}
               onChange={handleChange}
             />
-          </fieldset>
+          </Grid>
         </Grid>
-      </Grid>
-      <Button onClick={() => setIsEditing(!isEditing)}>Edit</Button>
+        <Button onClick={() => setIsEditing(!isEditing)}>Edit</Button>
+      </fieldset>
     </Paper>
   );
 };
@@ -204,6 +206,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { getAccount })(
-  withStyles(styles)(Settings)
-);
+export default connect(mapStateToProps, {})(withStyles(styles)(Settings));

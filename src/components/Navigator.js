@@ -55,8 +55,6 @@ const styles = (theme) => ({
 
 const Navigator = (props) => {
   const { classes, ...other } = props;
-  console.log("classes", classes);
-  console.log(other);
 
   return (
     <Drawer variant="permanent" {...other}>
