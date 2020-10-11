@@ -9,6 +9,7 @@ import {
 import HomeIcon from "@material-ui/icons/Home";
 import SettingsIcon from "@material-ui/icons/Settings";
 import FolderIcon from "@material-ui/icons/Folder";
+import CalendarTodayIcon from "@material-ui/icons/CalendarToday";
 import { withStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 
@@ -82,6 +83,18 @@ const Navigator = (props) => {
           </ListItemIcon>
           <ListItemText classes={{ primary: classes.itemPrimary }}>
             Forms
+          </ListItemText>
+        </ListItem>
+        <ListItem
+          button
+          className={clsx(classes.item, classes.itemActiveItem)}
+          onClick={() => other.setMenuItem("calendar")}
+        >
+          <ListItemIcon>
+            <CalendarTodayIcon />
+          </ListItemIcon>
+          <ListItemText classes={{ primary: classes.itemPrimary }}>
+            Calendar
           </ListItemText>
         </ListItem>
         <ListItem className={classes.categoryHeader}>
