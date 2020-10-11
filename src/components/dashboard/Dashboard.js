@@ -9,11 +9,11 @@ import {
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Hidden from "@material-ui/core/Hidden";
 import Header from "./Header.js";
-import Settings from "./Settings.js";
-import Forms from "./Forms.js";
+import Settings from "../Settings.js";
+import Forms from "../forms/Forms.js";
 import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
-import { getAccount } from "../actions/index.js";
+import { getAccount } from "../../actions/index.js";
 
 let theme = createMuiTheme({
   palette: {
