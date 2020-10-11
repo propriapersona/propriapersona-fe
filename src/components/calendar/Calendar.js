@@ -1,18 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import dayjs from "dayjs";
+import buildCalendar from "./build.js";
 
 const Calendar = () => {
-  const value = dayjs();
-  const startDay = value.clone().startOf("month").startOf("week");
-  const endDay = value.clone().endOf("month").endOf("week");
+  const [calendar, setCalendar] = useState([]);
+  const [value, setValue] = useState(dayjs());
 
+  useEffect(() => {
+    setCalendar(buildCalendar(value));
+  }, [value]);
+  // console.log(calendar);
   return (
-    <div>
+    <>
       <h1>Calendar will go here.</h1>
-      <div>
-        {startDay.format("MM/DD")} - {endDay.format("MM/DD")}
-      </div>
-    </div>
+      {/* <div>
+        {calendar.map((week) => {
+          return (
+            <div>
+              {week.map((day) => {
+                return <div>{day.format("D").toString()}</div>;
+              })}
+            </div>
+          );
+        })}
+      </div> */}
+    </>
   );
 };
 
