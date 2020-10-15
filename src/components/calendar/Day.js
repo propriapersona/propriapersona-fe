@@ -13,6 +13,7 @@ const styles = (theme) => ({
     // boxSizing: "border-box",
     // zIndex: "1",
     textAlign: "center",
+    borderRight: "1px solid black",
   },
 });
 
