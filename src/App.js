@@ -22,6 +22,13 @@ function App() {
           path={`/:username/dashboard`}
           component={Dashboard}
         />
+        <PrivateRoute exact path={`/:username/forms`} component={Dashboard} />
+        <PrivateRoute exact path={`/:username/events`} component={Dashboard} />
+        <PrivateRoute
+          exact
+          path={`/:username/settings`}
+          component={Dashboard}
+        />
       </Switch>
       <Footer />
     </div>

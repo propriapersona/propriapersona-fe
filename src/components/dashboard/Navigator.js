@@ -12,6 +12,7 @@ import FolderIcon from "@material-ui/icons/Folder";
 import CalendarTodayIcon from "@material-ui/icons/CalendarToday";
 import { withStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
+import { Link, useParams, useHistory } from "react-router-dom";
 
 const styles = (theme) => ({
   categoryHeader: {
@@ -56,6 +57,8 @@ const styles = (theme) => ({
 
 const Navigator = (props) => {
   const { classes, ...other } = props;
+  const history = useHistory();
+  const { username } = useParams();
 
   return (
     <Drawer variant="permanent" {...other}>
@@ -76,7 +79,11 @@ const Navigator = (props) => {
         <ListItem
           button
           className={clsx(classes.item, classes.itemActiveItem)}
-          onClick={() => other.setMenuItem("forms")}
+          component={Link}
+          onClick={() => {
+            other.setMenuItem("forms");
+            history.push(`/${username}/forms`);
+          }}
         >
           <ListItemIcon>
             <FolderIcon />
@@ -88,7 +95,11 @@ const Navigator = (props) => {
         <ListItem
           button
           className={clsx(classes.item, classes.itemActiveItem)}
-          onClick={() => other.setMenuItem("calendar")}
+          component={Link}
+          onClick={() => {
+            other.setMenuItem("calendar");
+            history.push(`/${username}/events`);
+          }}
         >
           <ListItemIcon>
             <CalendarTodayIcon />
@@ -105,7 +116,11 @@ const Navigator = (props) => {
         <ListItem
           button
           className={clsx(classes.item, classes.itemActiveItem)}
-          onClick={() => other.setMenuItem("settings")}
+          component={Link}
+          onClick={() => {
+            other.setMenuItem("settings");
+            history.push(`/${username}/settings`);
+          }}
         >
           <ListItemIcon>
             <SettingsIcon />

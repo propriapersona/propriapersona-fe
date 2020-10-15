@@ -12,7 +12,7 @@ import Header from "./Header.js";
 import Settings from "../Settings.js";
 import Forms from "../forms/Forms.js";
 import Calendar from "../calendar/Calendar.js";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import { getAccount } from "../../actions/index.js";
 
@@ -154,6 +154,7 @@ const styles = {
 const Dashboard = (props) => {
   const { classes, getAccount } = props;
   const { username } = useParams();
+  const history = useHistory();
   const [menuItem, setMenuItem] = useState("calendar");
 
   useEffect(() => {
