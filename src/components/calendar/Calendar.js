@@ -4,24 +4,34 @@ import moment from "moment";
 import buildCalendar from "./build.js";
 import { withStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import AddIcon from "@material-ui/icons/Add";
+import Typography from "@material-ui/core/Typography";
 import Day from "./Day.js";
 
 const styles = (theme) => ({
   week: {
     backgroundColor: "white",
-    width: "90%",
+    width: "100%",
     height: "125px",
     lineHeight: "44px",
     textAlign: "center",
     textTransform: "uppercase",
     display: "flex",
     fontWeight: "400",
+    borderBottom: "1px solid black",
   },
   container: {
     width: "90%",
     height: "90vh",
     margin: "auto",
   },
+  // add: {
+  //   flexGrow: 1,
+  // },
 });
 
 const Calendar = (props) => {
@@ -60,14 +70,27 @@ const Calendar = (props) => {
     return value.format("YYYY");
   }
 
+  function prevMonth() {
+    return value.clone().subtract(1, "month");
+  }
+
+  function nextMonth() {
+    return value.clone().add(1, "month");
+  }
+
   return (
     <>
       <div className={classes.container}>
-        <div>
-          <div>
-            {currMonthName()} {currYear()}
-          </div>
-        </div>
+        <AppBar component="div" position="static">
+          <Toolbar>
+            <ChevronLeftIcon onClick={() => setValue(prevMonth())} />
+            <Typography>
+              {currMonthName()} {currYear()}
+            </Typography>
+            <ChevronRightIcon onClick={() => setValue(nextMonth())} />
+            <AddIcon fontSize="large" />
+          </Toolbar>
+        </AppBar>
         {calendar.map((week) => {
           return (
             <div className={classes.week}>
