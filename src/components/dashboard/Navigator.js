@@ -68,7 +68,14 @@ const Navigator = (props) => {
         >
           Propria Persona
         </ListItem>
-        <ListItem className={clsx(classes.item, classes.itemCategory)}>
+        <ListItem
+          className={clsx(classes.item, classes.itemCategory)}
+          component={Link}
+          onClick={() => {
+            other.setMenuItem("summary");
+            history.push(`/${username}/dashboard`);
+          }}
+        >
           <ListItemIcon className={classes.itemIcon}>
             <HomeIcon />
           </ListItemIcon>

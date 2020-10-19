@@ -17,6 +17,7 @@ import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
 import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
+import axiosWithAuth from "../utils/axiosAuth.js";
 
 const lightColor = "rgba(255, 255, 255, 0.7)";
 
@@ -51,7 +52,7 @@ const styles = (theme) => ({
 const Settings = (props) => {
   const [isEditing, setIsEditing] = useState(false);
   const [updatedAccount, setUpdatedAccount] = useState({
-    id: 0,
+    id: props.account.id,
     first_name: "",
     last_name: "",
     address: "",
@@ -63,19 +64,29 @@ const Settings = (props) => {
     case_type: "",
     party_name: "",
   });
+
   const { classes } = props;
+  // console.log(props);
 
   useEffect(() => {
     setUpdatedAccount(props.account);
   }, []);
 
-  console.log(props.account);
+  // console.log(props.account);
 
   const handleChange = (event) => {
     setUpdatedAccount({
       ...updatedAccount,
       [event.target.name]: event.target.value,
     });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    axiosWithAuth()
+      .put(`/account/${props.account.id}`, updatedAccount)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
   };
 
   console.log(updatedAccount);
@@ -195,6 +206,7 @@ const Settings = (props) => {
           </Grid>
         </Grid>
         <Button onClick={() => setIsEditing(!isEditing)}>Edit</Button>
+        <Button onClick={handleSubmit}>Update Account</Button>
       </fieldset>
     </Paper>
   );

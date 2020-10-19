@@ -35,6 +35,7 @@ const LoadPDF = () => {
     });
 
     const pdfBytes = await pdfDoc.save();
+    console.log(pdfBytes);
     const docUrl = URL.createObjectURL(
       new Blob(pdfBytes, { type: "application/pdf" })
     ).replace("blob:", "");

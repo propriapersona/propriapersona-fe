@@ -9,6 +9,7 @@ import {
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Hidden from "@material-ui/core/Hidden";
 import Header from "./Header.js";
+import Summary from "../Summary.js";
 import Settings from "../Settings.js";
 import Forms from "../forms/Forms.js";
 import Calendar from "../calendar/Calendar.js";
@@ -155,7 +156,7 @@ const Dashboard = (props) => {
   const { classes, getAccount } = props;
   const { username } = useParams();
   const history = useHistory();
-  const [menuItem, setMenuItem] = useState("calendar");
+  const [menuItem, setMenuItem] = useState("settings");
 
   useEffect(() => {
     getAccount(username);
@@ -176,10 +177,12 @@ const Dashboard = (props) => {
           />
         </nav>
         <div className={classes.app}>
-          <Header />
+          <Header active={menuItem} />
           <main className={classes.main}>
             {/* <Content /> */}
-            {menuItem === "forms" ? (
+            {menuItem === "summary" ? (
+              <Summary />
+            ) : menuItem === "forms" ? (
               <Forms />
             ) : menuItem === "settings" ? (
               <Settings />
