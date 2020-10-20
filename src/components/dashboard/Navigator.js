@@ -10,6 +10,7 @@ import HomeIcon from "@material-ui/icons/Home";
 import SettingsIcon from "@material-ui/icons/Settings";
 import FolderIcon from "@material-ui/icons/Folder";
 import CalendarTodayIcon from "@material-ui/icons/CalendarToday";
+import AssignmentIcon from "@material-ui/icons/Assignment";
 import { withStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 import { Link, useParams, useHistory } from "react-router-dom";
@@ -81,6 +82,22 @@ const Navigator = (props) => {
           </ListItemIcon>
           <ListItemText classes={{ primary: classes.itemPrimary }}>
             Home
+          </ListItemText>
+        </ListItem>
+        <ListItem
+          button
+          className={clsx(classes.item, classes.itemActiveItem)}
+          component={Link}
+          onClick={() => {
+            other.setMenuItem("tasks");
+            history.push(`/${username}/tasks`);
+          }}
+        >
+          <ListItemIcon>
+            <AssignmentIcon />
+          </ListItemIcon>
+          <ListItemText classes={{ primary: classes.itemPrimary }}>
+            Tasks
           </ListItemText>
         </ListItem>
         <ListItem
