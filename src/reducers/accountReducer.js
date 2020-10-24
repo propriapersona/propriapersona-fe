@@ -26,6 +26,19 @@ const accountReducer = (state = initialState, action) => {
       return {
         ...state,
       };
+    case UPDATE_ACCOUNT_START:
+      return {
+        ...state,
+      };
+    case UPDATE_ACCOUNT_SUCCESS:
+      return {
+        ...state,
+        account: action.payload,
+      };
+    case UPDATE_ACCOUNT_FAIL:
+      return {
+        ...state,
+      };
     default:
       return state;
   }
