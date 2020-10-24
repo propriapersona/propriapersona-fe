@@ -40,6 +40,8 @@ export const updateAccount = (acctID, updatedAccount) => (dispatch) => {
   dispatch({ type: UPDATE_ACCOUNT_START });
   axiosWithAuth()
     .put(`/account/${acctID}`, updatedAccount)
-    .then((res) => console.log(res))
-    .catch((err) => console.log(err));
+    .then((res) => {
+      dispatch({ type: UPDATE_ACCOUNT_SUCCESS, payload: res.data });
+    })
+    .catch((err) => dispatch({ type: UPDATE_ACCOUNT_FAIL, payload: err }));
 };
