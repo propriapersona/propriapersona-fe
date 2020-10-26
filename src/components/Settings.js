@@ -18,6 +18,7 @@ import Tabs from "@material-ui/core/Tabs";
 import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import axiosWithAuth from "../utils/axiosAuth.js";
+import { updateAccount } from "../actions/index";
 
 const lightColor = "rgba(255, 255, 255, 0.7)";
 
@@ -83,10 +84,7 @@ const Settings = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axiosWithAuth()
-      .put(`/account/${props.account.id}`, updatedAccount)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+    updateAccount(props.account.id, updatedAccount);
   };
 
   console.log(updatedAccount);
@@ -218,4 +216,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, {})(withStyles(styles)(Settings));
+export default connect(mapStateToProps, { updateAccount })(
+  withStyles(styles)(Settings)
+);

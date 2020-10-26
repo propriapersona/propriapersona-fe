@@ -14,6 +14,12 @@ export const UPDATE_ACCOUNT_START = "UPDATE_ACCOUNT_START";
 export const UPDATE_ACCOUNT_SUCCESS = "UPDATE_ACCOUNT_SUCCESS";
 export const UPDATE_ACCOUNT_FAIL = "UPDATE_ACCOUNT_FAIL";
 
+// Event Reducer Action Variables
+
+export const GET_EVENT_START = "GET_EVENT_START";
+export const GET_EVENT_SUCCESS = "GET_EVENT_SUCCESS";
+export const GET_EVENT_FAIL = "GET_EVENT_FAIL";
+
 export const getUsers = () => (dispatch) => {
   console.log("getUsers Fired");
   dispatch({ type: GET_USER_START });

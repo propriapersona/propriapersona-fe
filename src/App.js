@@ -24,6 +24,7 @@ function App() {
         />
         <PrivateRoute exact path={`/:username/forms`} component={Dashboard} />
         <PrivateRoute exact path={`/:username/events`} component={Dashboard} />
+        <PrivateRoute exact path={`/:username/tasks`} component={Dashboard} />
         <PrivateRoute
           exact
           path={`/:username/settings`}
