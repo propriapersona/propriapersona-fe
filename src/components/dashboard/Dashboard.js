@@ -16,6 +16,7 @@ import Calendar from "../calendar/Calendar.js";
 import { useParams, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import { getAccount } from "../../actions/index.js";
+import TaskList from "../tasks/TaskList.js";
 
 let theme = createMuiTheme({
   palette: {
@@ -156,7 +157,7 @@ const Dashboard = (props) => {
   const { classes, getAccount } = props;
   const { username } = useParams();
   const history = useHistory();
-  const [menuItem, setMenuItem] = useState("settings");
+  const [menuItem, setMenuItem] = useState("summary");
 
   useEffect(() => {
     getAccount(username);
@@ -182,6 +183,8 @@ const Dashboard = (props) => {
             {/* <Content /> */}
             {menuItem === "summary" ? (
               <Summary />
+            ) : menuItem === "tasks" ? (
+              <TaskList />
             ) : menuItem === "forms" ? (
               <Forms />
             ) : menuItem === "settings" ? (
