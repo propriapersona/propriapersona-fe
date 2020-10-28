@@ -130,82 +130,84 @@ const Settings = (props) => {
           <Tab textColor="inherit" label="Account Settings" />
         </Tabs>
       </AppBar> */}
-      <fieldset disabled={isEditing}>
-        <Grid container direction="column">
-          <Grid item sm>
-            <Typography>Personal Information</Typography>
-            <Divider />
-            <TextField
-              name="first_name"
-              label="First Name"
-              value={updatedAccount.first_name}
-              onChange={handleChange}
-            />
-            <TextField
-              name="last_name"
-              label="Last Name"
-              value={updatedAccount.last_name}
-              onChange={handleChange}
-            />
+      <form onSubmit={handleSubmit}>
+        <fieldset disabled={isEditing}>
+          <Grid container direction="column">
+            <Grid item sm>
+              <Typography>Personal Information</Typography>
+              <Divider />
+              <TextField
+                name="first_name"
+                label="First Name"
+                value={updatedAccount.first_name}
+                onChange={handleChange}
+              />
+              <TextField
+                name="last_name"
+                label="Last Name"
+                value={updatedAccount.last_name}
+                onChange={handleChange}
+              />
+            </Grid>
+            <Grid item sm>
+              <TextField
+                name="address"
+                label="Address"
+                value={updatedAccount.address}
+                onChange={handleChange}
+              />
+              <TextField
+                name="address2"
+                label="Apt/Unit/PO Box"
+                value={updatedAccount.address2}
+                onChange={handleChange}
+              />
+              <TextField
+                name="city"
+                label="City"
+                value={updatedAccount.city}
+                onChange={handleChange}
+              />
+              <TextField
+                name="state"
+                label="State"
+                value={updatedAccount.state}
+                onChange={handleChange}
+              />
+              <TextField
+                name="zip"
+                label="Zip Code"
+                value={updatedAccount.zip}
+                onChange={handleChange}
+              />
+            </Grid>
+            <Grid item sm>
+              <Typography>Case Information</Typography>
+              <Divider />
+              <TextField
+                name="case_number"
+                label="Case Number"
+                value={updatedAccount.case_number}
+                onChange={handleChange}
+              />
+              <TextField
+                name="case_type"
+                label="Case Type"
+                value={updatedAccount.case_type}
+                onChange={handleChange}
+              />
+              <TextField
+                name="party_name"
+                label="Party Name"
+                value={updatedAccount.party_name}
+                onChange={handleChange}
+              />
+            </Grid>
           </Grid>
-          <Grid item sm>
-            <TextField
-              name="address"
-              label="Address"
-              value={updatedAccount.address}
-              onChange={handleChange}
-            />
-            <TextField
-              name="address2"
-              label="Apt/Unit/PO Box"
-              value={updatedAccount.address2}
-              onChange={handleChange}
-            />
-            <TextField
-              name="city"
-              label="City"
-              value={updatedAccount.city}
-              onChange={handleChange}
-            />
-            <TextField
-              name="state"
-              label="State"
-              value={updatedAccount.state}
-              onChange={handleChange}
-            />
-            <TextField
-              name="zip"
-              label="Zip Code"
-              value={updatedAccount.zip}
-              onChange={handleChange}
-            />
-          </Grid>
-          <Grid item sm>
-            <Typography>Case Information</Typography>
-            <Divider />
-            <TextField
-              name="case_number"
-              label="Case Number"
-              value={updatedAccount.case_number}
-              onChange={handleChange}
-            />
-            <TextField
-              name="case_type"
-              label="Case Type"
-              value={updatedAccount.case_type}
-              onChange={handleChange}
-            />
-            <TextField
-              name="party_name"
-              label="Party Name"
-              value={updatedAccount.party_name}
-              onChange={handleChange}
-            />
-          </Grid>
-        </Grid>
-        <Button onClick={() => setIsEditing(!isEditing)}>Edit</Button>
-        <Button onClick={handleSubmit}>Update Account</Button>
-      </fieldset>
+          <Button onClick={() => setIsEditing(!isEditing)}>Edit</Button>
+          <Button type="submit">Update Account</Button>
+        </fieldset>
+      </form>
     </Paper>
   );
 };
