@@ -97,39 +97,20 @@ const Settings = (props) => {
         color="primary"
         position="static"
         elevation={0}
-      >
-        {/* <Toolbar>
-          <Grid container alignItems="center" spacing={1}>
-            <Grid item xs>
-              <Typography color="inherit" variant="h5" component="h1">
-                Welcome
-              </Typography>
-            </Grid>
-            <Grid item>
-              <Button
-                className={classes.button}
-                variant="outlined"
-                color="inherit"
-                size="small"
-              >
-                Foo
-              </Button>
-            </Grid>
-          </Grid>
-        </Toolbar> */}
-      </AppBar>
-      {/* <AppBar
+      ></AppBar>
+      <AppBar
         component="div"
         className={classes.secondaryBar}
         color="primary"
-        position="static"
+        position="fixed"
         elevation={0}
       >
+        {/* Need to fix the position of this. */}
         <Tabs value={0} textColor="inherit">
           <Tab textColor="inherit" label="Case Settings" />
           <Tab textColor="inherit" label="Account Settings" />
         </Tabs>
-      </AppBar> */}
+      </AppBar>
       <form onSubmit={handleSubmit}>
         <fieldset disabled={isEditing}>
           <Grid container direction="column">
